@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A Little Birthday Surprise 🤍</title>
+<style>
+*{box-sizing:border-box} body{margin:0;font-family:Georgia,serif;background:linear-gradient(135deg,#160d16,#3a1f2c,#120d15);color:#fff;min-height:100vh}
+.wrap{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px}
+.card{width:min(430px,100%);padding:34px 25px;border:1px solid #ffffff25;border-radius:28px;background:#ffffff0d;backdrop-filter:blur(12px);box-shadow:0 20px 60px #0008;text-align:center}
+h1{font-size:28px;margin:8px 0 16px} p{line-height:1.8;color:#eee;font-size:15px}.small{color:#cdb9c5;font-size:13px}
+input{width:100%;padding:15px;border-radius:14px;border:1px solid #ffffff30;background:#fff;color:#222;text-align:center;font-size:18px;letter-spacing:4px;margin:18px 0}
+button{border:0;border-radius:999px;padding:13px 24px;background:#fff;color:#24131d;font-weight:bold;cursor:pointer}
+.screen{display:none}.screen.active{display:block;animation:fade .7s}@keyframes fade{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+.photos{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:22px 0}.photos div{height:145px;border-radius:15px;background:#ffffff18;display:flex;align-items:center;justify-content:center;color:#cbbac2;font-size:12px}
+.quote{font-style:italic;color:#e9dbe3;margin:25px 0}.heart{font-size:42px}
+</style>
+</head>
+<body>
+<div class="wrap"><div class="card">
+
+<section id="lock" class="screen active">
+<div class="heart">🔐</div><h1>A little surprise for you</h1>
+<p class="small">Some things are meant to be opened only by the right person.</p>
+<input id="code" type="password" placeholder="Enter the code" maxlength="8">
+<button onclick="unlock()">OPEN 💌</button>
+<p id="error" class="small"></p>
+</section>
+
+<section id="message" class="screen">
+<div class="heart">🤍</div><h1>Hey… you actually found your way here.</h1>
+<p>I don't know what you'll feel after opening this… but I just wanted to leave something here for you.</p>
+<p>No expectations. No pressure. Just a little piece of a memory.</p>
+<p class="quote">“Some memories don't need explanations.”</p>
+<button onclick="show('home')">If you're ready… let's begin ✨</button>
+</section>
+
+<section id="home" class="screen">
+<h1>Happy Birthday 🤍</h1>
+<p>A little something made with a genuine wish for you.</p>
+<button onclick="show('story')">Keep going →</button>
+</section>
+
+<section id="story" class="screen">
+<h1>Funny how it all started…</h1>
+<p>From strangers to memories.</p>
+<p>Oru time la strangers-ah irundha namma… somehow pesinom, close aonom, and life-la oru important chapter-a maarinom.</p>
+<p>Life sometimes introduces people without telling us how important they're going to become.</p>
+<button onclick="show('memories')">Keep going →</button>
+</section>
+
+<section id="memories" class="screen">
+<h1>Some memories stay</h1><p>Even when everything changes.</p>
+<div class="photos"><div>📸 Photo 1</div><div>📸 Photo 2</div><div>📸 Photo 3</div><div>📸 Photo 4</div></div>
+<button onclick="show('wish')">One more thing →</button>
+</section>
+
+<section id="wish" class="screen">
+<h1>Something I wanted to say</h1>
+<p>I don't know what you think about me now, and maybe I don't need to know. A lot has changed between us, and we've both had our share of hurt. But one thing hasn't changed — I still genuinely wish good things for you.</p>
+<p>I hope this new year of your life gives you the kind of happiness you don't have to pretend for. I hope you find things that make you excited about life and slowly leave behind everything that once made you feel heavy.</p>
+<p>Whatever place I have in your life now, I'm thankful that once, our paths crossed and I got to know you the way I did.</p>
+<button onclick="show('final')">Today is yours →</button>
+</section>
+
+<section id="final" class="screen">
+<div class="heart">🎂🤍</div><h1>HAPPY BIRTHDAY</h1>
+<p class="quote">No expectations. No explanations.</p>
+<p>Just a genuine wish from someone who once cared, still cares in her own quiet way, and wants to see you happy.</p>
+<button onclick="show('last')">Last page →</button>
+</section>
+
+<section id="last" class="screen">
+<h1>One last thought</h1>
+<p>Maybe some people are meant to stay.<br>Maybe some are meant to teach us.<br>And maybe some are meant to leave…<br>but never completely disappear.</p>
+<p>I don't know what the future has kept for us. But if someday life gives us a small chance to sit down, talk, and laugh without thinking about everything that happened… I'd like that.</p>
+<p>Adhu nadakkuma nu theriyadhu. But some wishes are worth keeping quietly.</p>
+<p>Until then… take care of yourself.<br><b>Happy Birthday, once again. ❤️</b></p>
+<p class="small">— from someone who will always wish good things for you</p>
+</section>
+
+</div></div>
+<script>
+function show(id){document.querySelectorAll('.screen').forEach(x=>x.classList.remove('active'));document.getElementById(id).classList.add('active')}
+function unlock(){let c=document.getElementById('code').value.trim(); if(c==='1305'){show('message')}else{document.getElementById('error').textContent='Hmm… that’s not the code 🤍 Try again.'}}
+</script>
+</body>
+</html>
